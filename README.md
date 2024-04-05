@@ -51,6 +51,7 @@ By starting with this structure, we can handle the basic requirements of task ma
 
 *This table will hold information about the projects being managed. Here’s a simple structure:*
 
+|                  |                                                              |
 |------------------|--------------------------------------------------------------|
 | **project_id**   | *PK; unique identifier for each project*                     |
 | **project_name** | *Text/Varchar, name of the project*                          |
@@ -63,6 +64,7 @@ By starting with this structure, we can handle the basic requirements of task ma
 
 *This table will hold information about the tasks being managed. Here’s a simple structure:*
 
+|             |                                                              |
 |-------------|--------------------------------------------------------------|
 | task_id     | *PK; unique identifier for each task*                        |
 | project_id  | *FK; Links to the Projects table to indicate which project the task belongs to.* |
@@ -78,6 +80,7 @@ By starting with this structure, we can handle the basic requirements of task ma
 
 *This table will manage the users involved in the project:*
 
+|          |                                                              |
 |----------|--------------------------------------------------------------|
 | user_id  | PK, unique identifier for each user                          |
 | username | Text, the name or alias of the user                          |
