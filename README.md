@@ -1,7 +1,7 @@
-# DEVC 1.0 Hackathon - BACKEND IMPLEMENTATION
+# Drippy Bytes - Backend Database Design, API Development, Routes, Authenticaiton and Authorization
 
 
-## **Initial Outline:**
+## **Initial Working Outline:**
 
 **1. Database Design**
 
