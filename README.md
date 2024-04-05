@@ -41,15 +41,16 @@ By starting with this structure, we can handle the basic requirements of task ma
 
 ##### Define Tables
 
-~**For a basic project management tool, you will need at least the following tables:**~
+**For a basic project management tool, you will need at least the following tables:**
 
 * **Projects**: To store information about each project.
 * **Tasks**: To store details about tasks.
 * **Users**: To manage user information, including their roles and responsibilities.
 
  **Projects Table Structure:**
-*This table will hold information about the projects being managed. Here’s a simple structure*
-|                  |                                                              |
+
+*This table will hold information about the projects being managed. Here’s a simple structure:*
+
 |------------------|--------------------------------------------------------------|
 | **project_id**   | *PK; unique identifier for each project*                     |
 | **project_name** | *Text/Varchar, name of the project*                          |
@@ -57,9 +58,11 @@ By starting with this structure, we can handle the basic requirements of task ma
 | **start_date**   | *Date; project start date*                                   |
 | **end_date**     | *Date; project due date*                                     |
 | **status**       | *Text, Current status of the project (e.g., Active, Completed, On Hold)* |
+
 **Tasks Table Structure:**
-*This table will hold information about the projects being managed. Here’s a simple structure:*
-|             |                                                              |
+
+*This table will hold information about the tasks being managed. Here’s a simple structure:*
+
 |-------------|--------------------------------------------------------------|
 | task_id     | *PK; unique identifier for each task*                        |
 | project_id  | *FK; Links to the Projects table to indicate which project the task belongs to.* |
@@ -72,25 +75,25 @@ By starting with this structure, we can handle the basic requirements of task ma
 | due_date    | *Date*                                                       |
 
 **Users Table Structure:**
-*This table will manage the users involved in the project*
-|          |                                                              |
+
+*This table will manage the users involved in the project:*
+
 |----------|--------------------------------------------------------------|
 | user_id  | PK, unique identifier for each user                          |
 | username | Text, the name or alias of the user                          |
 | email    | Text, User’s email address                                   |
 | role     | text, User’s role within the team (ie. Admin, Project Manager, Devleoper, etc) |
 
-**⠀*Relationships***
+***Relationships***
 
 * A **one-to-many** relationship between Projects and Tasks: Each project can have multiple tasks, but each task belongs to only one project.
+
 * A **one-to-many** relationship between Users and Tasks: Each user can have multiple tasks assigned, but each task has only one assignee.
 
-⠀***Indexing and Optimization***
+***Indexing and Optimization***
 
 * Index fields that are frequently queried or used in join operations, like project_id in the Tasks table and user_id in the Users table, to improve performance.
 * Consider the use of composite indexes if there are common queries involving multiple columns.
-
-.
 
 ## API Development
 
@@ -146,7 +149,7 @@ By starting with this structure, we can handle the basic requirements of task ma
   * Fetch the file’s metadata from the database using the fileId to get the storage location.
   * Stream the file from the server or redirect to the cloud storage URL for direct download.
 
-⠀**Comments on Tasks**
+**Comments on Tasks**
 
 * **Add a Comment**
   * Endpoint: POST /tasks/{taskId}/comments
@@ -156,7 +159,7 @@ By starting with this structure, we can handle the basic requirements of task ma
   * Endpoint: GET /tasks/{taskId}/comments
   * Fetch and return all comments associated with a specific task, possibly with pagination.
 
-⠀**Notifications**
+**Notifications**
 
 * **Triggering Notifications**
   * Notifications can be triggered by various actions (task creation/update, new comment, file upload, etc.).
@@ -168,12 +171,12 @@ By starting with this structure, we can handle the basic requirements of task ma
   * Consider using WebSockets? or a similar technology to push notifications to the client in real-time.
   * Endpoint could be a WebSocket endpoint that clients connect to, and receive notifications as they happen.
 
-⠀**Integrating with Task and Project Modules**
+**Integrating with Task and Project Modules**
 
 * Ensure that the collaboration APIs are closely integrated with the tasks and projects. For example, comments should be easily accessible from the task objects, and files should be linked to the tasks or projects they are associated with.
 * Use foreign keys and relational database principles to link files, comments, and notifications with their respective tasks, projects, and users.
 
-⠀**Implementation Tips**
+**Implementation Tips**
 
 * For file storage, consider setting limits on file size and type to prevent abuse.
 * Ensure that APIs for sensitive actions like adding comments or uploading files are protected and only accessible by users who have the right permissions.
