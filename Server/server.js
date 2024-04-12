@@ -1,4 +1,4 @@
-require('doenv').config();
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const db = require('./db/db')
@@ -228,10 +228,27 @@ app.put('/users/:userId', async (req, res) => {
 app.delete('/users/:userId', async (req, res) => {
   const userId = req.params.userId;
   try {
+    console.log('Deleting user with ID:', userId);
+
+    // Find tasks associated with the user
+    const { rows: tasks } = await db.query('SELECT * FROM tasks WHERE assignee_id = $1', [userId]);
+    console.log('Tasks associated with the user:', tasks);
+
+    // Update tasks to nullify the association with the user
+    if (tasks.length > 0) {
+      console.log('Updating tasks to nullify association with the user...');
+      await db.query('UPDATE tasks SET assignee_id = NULL WHERE assignee_id = $1', [userId]);
+      console.log('Tasks updated successfully.');
+    }
+
+    // Now that tasks are updated, delete the user
     const { rows } = await db.query('DELETE FROM users WHERE user_id = $1 RETURNING *', [userId]);
+    console.log('User deleted successfully.');
+
     if (rows.length === 0) {
       return res.status(404).send('User not found');
     }
+
     res.json({ message: 'User deleted successfully' });
   } catch (error) {
     console.error('Error deleting user:', error);
