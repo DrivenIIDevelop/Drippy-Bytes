@@ -230,18 +230,18 @@ app.delete('/users/:userId', async (req, res) => {
   try {
     console.log('Deleting user with ID:', userId);
 
-    // Find tasks associated with the user
+    // added console logs to debug: Find tasks associated with the user
     const { rows: tasks } = await db.query('SELECT * FROM tasks WHERE assignee_id = $1', [userId]);
     console.log('Tasks associated with the user:', tasks);
 
-    // Update tasks to nullify the association with the user
+    // added console logs to debug: Update tasks to nullify the association with the user
     if (tasks.length > 0) {
       console.log('Updating tasks to nullify association with the user...');
       await db.query('UPDATE tasks SET assignee_id = NULL WHERE assignee_id = $1', [userId]);
       console.log('Tasks updated successfully.');
     }
 
-    // Now that tasks are updated, delete the user
+    // added console logs to debug: Now that tasks are updated, delete the user
     const { rows } = await db.query('DELETE FROM users WHERE user_id = $1 RETURNING *', [userId]);
     console.log('User deleted successfully.');
 
