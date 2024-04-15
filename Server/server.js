@@ -4,18 +4,19 @@ const app = express();
 const upload = require('./config/multerConfig');
 const path = require('path');
 
-
 app.use(express.json()); // Middleware to parse JSON bodies
 
 // Import route modules
 const projectRoutes = require('./routes/projectRoutes');
 const taskRoutes = require('./routes/taskRoutes');
 const userRoutes = require('./routes/userRoutes');
+const fileUploadRoutes = require('./routes/fileUploadRoutes');
 
 // Use route modules
 app.use('/projects', projectRoutes);
-app.use('/projects/:projectId/tasks', taskRoutes); // Correct mounting for task routes
+app.use('/projects/:projectId/tasks', taskRoutes);
 app.use('/users', userRoutes);
+app.use('/files', fileUploadRoutes);
 
 // Route to handle file uploads using Multer
 app.post('/upload', upload.single('file'), (req, res) => {
