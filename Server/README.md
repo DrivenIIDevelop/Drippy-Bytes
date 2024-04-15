@@ -87,6 +87,33 @@ By starting with this structure, we can handle the basic requirements of task ma
 | email    | Text, User’s email address                                   |
 | role     | text, User’s role within the team (ie. Admin, Project Manager, Devleoper, etc) |
 
+
+**Table Name:** files
+
+| Column       | Data Type         | Description                                         |
+|--------------|-------------------|-----------------------------------------------------|
+| file_id      | Serial, Primary Key | Auto-incrementing unique identifier for each file. |
+| file_name    | VARCHAR           | Name of the uploaded file.                          |
+| file_path    | VARCHAR           | Path to the file on the server or cloud storage URL.|
+| uuid         | VARCHAR           | Universally Unique Identifier (UUID) for each file. |
+| upload_date  | TIMESTAMP         | Timestamp indicating when the file was uploaded.    |
+| user_id      | INT               | Foreign key to associate files with specific users (if applicable). |
+
+### File Upload Endpoint
+
+**Endpoint:** POST /upload
+
+
+**Steps:**
+1. Receive a file upload request.
+2. Store the file in the server's upload directory.
+3. Generate a UUID for the file.
+4. Insert metadata (file name, path, UUID, upload date, user ID) into the files table.
+
+
+
+
+
 ***Relationships***
 
 * A **one-to-many** relationship between Projects and Tasks: Each project can have multiple tasks, but each task belongs to only one project.
