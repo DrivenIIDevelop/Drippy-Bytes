@@ -4,7 +4,7 @@ const db = require('../db/db');
 
 // GET all participants for a specific conversation
 router.get('/', async (req, res) => {
-  const conversationId = req.params.conversationId;
+  const conversationId = req.params.conversationId; // Corrected to use req.params.conversationId directly
   try {
     const { rows } = await db.query(
       'SELECT u.user_id, u.username, u.email FROM users u INNER JOIN conversation_participants cp ON u.user_id = cp.participant_id WHERE cp.conversation_id = $1',
