@@ -11,12 +11,20 @@ const projectRoutes = require('./routes/projectRoutes');
 const taskRoutes = require('./routes/taskRoutes');
 const userRoutes = require('./routes/userRoutes');
 const fileUploadRoutes = require('./routes/fileUploadRoutes');
+const conversationRoutes = require('./routes/conversationsRoutes');
+const conversationParticipantsRoutes = require('./routes/conversation_participantsRoutes');
+const conversationMessagesRoutes = require('./routes/conversation_messages'); // Import the new route module for conversation messages
 
 // Use route modules
 app.use('/projects', projectRoutes);
 app.use('/projects/:projectId/tasks', taskRoutes);
 app.use('/users', userRoutes);
 app.use('/files', fileUploadRoutes);
+app.use('./conversations', conversationRoutes);
+app.use('/conversations/:conversationId/participants', conversationParticipantsRoutes); // Add new route for conversation participants
+app.use('/conversations/:conversationId/messages', conversationMessagesRoutes); // Add new route for conversation messages
+
+
 
 // Route to handle file uploads using Multer
 app.post('/upload', upload.single('file'), (req, res) => {
