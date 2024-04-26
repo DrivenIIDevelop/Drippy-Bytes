@@ -106,6 +106,26 @@ CREATE TABLE conversation_messages (
     FOREIGN KEY (conversation_id) REFERENCES conversations(id),
     FOREIGN KEY (messenger_id) REFERENCES users(user_id)
 );
-INSERT INTO conversation_messages (conversation_id, messenger_id, message) VALUES
-(1, 1, 'Hello, how are you?');
 
+ALTER TABLE conversation_messages ADD COLUMN created_at TIMESTAMP DEFAULT NOW();
+
+INSERT INTO conversation_messages (conversation_id, messenger_id, message, created_at)
+VALUES
+(1, 2, 'Message 4', NOW()),  -- Assuming conversation_message_id 4 is not already in use
+(1, 5, 'Message 5', NOW()),  -- Assuming conversation_message_id 5 is not already in use
+(2, 1, 'Message 6', NOW());  -- Assuming conversation_message_id 6 is not already in use
+
+
+
+--convestation_messages_to_user table and seed data:
+CREATE TABLE conversation_messages_to_user (
+    conversation_messages_to_user_id SERIAL PRIMARY KEY,
+    conversation_message_id INT REFERENCES conversation_messages(conversation_message_id),
+    user_id INT REFERENCES users(user_id)
+);
+INSERT INTO conversation_messages_to_user (conversation_message_id, user_id)
+VALUES
+    (2, 2),  -- Assuming user_id 2 exists in users
+    (8, 5),  -- Assuming user_id 5 exists in users
+    (9, 1),  -- Assuming user_id 1 exists in users
+    (10, 2); -- Assuming user_id 2 exists in users
