@@ -1,0 +1,19 @@
+.NavBar {
+    width: 1440px;
+    height: 65px;
+    display: inline-flex;
+    background-color: #033E8A;
+    margin-bottom: 24px;
+}
+
+.option {
+    margin: 24px;
+}
+
+.SearchBar {
+    height: auto;
+}
+
+.right {
+    align-items: right;
+}

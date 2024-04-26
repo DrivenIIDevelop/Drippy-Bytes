@@ -1,0 +1,11 @@
+.user-initials {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(220, 37, 37);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}

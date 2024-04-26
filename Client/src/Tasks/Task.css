@@ -1,0 +1,8 @@
+.task {
+    display: inline-flex;
+    flex-direction: row;
+    color: black;
+    background-color: #DEE8F5;
+    height: 67px;
+    width: 1110px;
+}
