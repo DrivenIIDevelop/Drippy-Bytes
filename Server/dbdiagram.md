@@ -1,4 +1,4 @@
-# ProjectPulse dbdiagram.io
+# dbdiagram.io schema
 
 Table projects {
   project_id int PK
@@ -40,6 +40,7 @@ Table files {
 Table conversations {
   id int PK
   owner_id int [ref: > users.user_id]
+  project_id int [ref: > projects.project_id]
   name varchar
 }
 
@@ -54,6 +55,7 @@ Table conversation_messages {
   conversation_id int [ref: > conversations.id]
   messenger_id int [ref: > users.user_id]
   message text
+  created_at timestamp
 }
 
 Table project_to_user {
@@ -77,4 +79,10 @@ Table notes {
   user_id int [ref: > users.user_id]
   created_at timestamp
   updated_at timestamp
+}
+
+Table conversation_messages_to_user {
+  conversation_messages_to_user_id PK
+  conversation_message_id int [ref: > conversation_messages.conversation_message_id]
+  user_id int [ref: > users.user_id]
 }

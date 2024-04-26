@@ -1,7 +1,11 @@
 # Drippy Bytes - Backend Database Design, API Development, Routes, Authenticaiton and Authorization
 
+## Database Schema Design
 
-## **Initial Working Outline:**
+![Database Schema](images/ProjectPulse.png)
+
+
+## **Working Outline:**
 
 **1. Database Design**
 
