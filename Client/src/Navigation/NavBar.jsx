@@ -8,10 +8,15 @@ function NavBar() {
     <>
       <div className="NavBar">
         <p className='option'>Project Pulse</p>
-        <SearchForm />
-        <a className='option right'><MdNotificationsNone /></a>
-        <a className='option right'><UserInitials
-          firstName={"John"} lastName={"Doe"} /></a>
+        <div className="NavBar-right">
+            <SearchForm />
+            <a href="#" className='option'>
+                <MdNotificationsNone />
+            </a>
+            <a href="#" className='option'>
+                <UserInitials firstName={"John"} lastName={"Doe"} />
+            </a>
+        </div>
       </div>
     </>
   )

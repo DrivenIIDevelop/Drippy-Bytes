@@ -1,13 +1,19 @@
 .NavBar {
     width: 1440px;
     height: 65px;
-    display: inline-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #033E8A;
-    margin-bottom: 24px;
+}
+
+.NavBar-right {
+    display: flex;
+    align-items: center;
 }
 
 .option {
-    margin: 24px;
+    margin-inline: 24px;
 }
 
 .SearchBar {
@@ -15,5 +21,5 @@
 }
 
 .right {
-    align-items: right;
+    align-items: end;
 }
