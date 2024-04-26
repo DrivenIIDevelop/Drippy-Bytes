@@ -1,6 +1,40 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/db');
+const bcrypt = require('bcrypt');
+
+// Hash password function
+const hashPassword = async (password) => {
+  try {
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    return hashedPassword;
+  } catch (error) {
+    console.error('Error hashing password:', error);
+    throw error;
+  }
+};
+
+
+//Create a new user
+router.post('/', async (req, res) => {
+  const { username, email, role, password } = req.body;
+  try {
+    const hashedPassword = await hashPassword(password); // Hash the password
+    const { rows } = await db.query(
+      'INSERT INTO users (username, email, role, password) VALUES ($1, $2, $3, $4) RETURNING *',
+      [username, email, role, hashedPassword] // Store the hashed password in the database
+    );
+    res.status(201).json(rows[0]);
+  } catch (error) {
+    console.error('Error creating user:', error);
+    res.status(500).send('Server Error');
+  }
+});
+
+
+
+
 
 // GET all users
 router.get('/', async (req, res) => {

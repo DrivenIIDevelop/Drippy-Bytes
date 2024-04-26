@@ -46,6 +46,7 @@ INSERT INTO users (user_id, username, email, role) VALUES
 (1, 'user1', 'user1@example.com', 'Developer'),
 (2, 'user2', 'user2@example.com', 'Manager');
 
+ALTER TABLE users ADD COLUMN hashed_password TEXT;
 
 
 -- Files table and seed data:
@@ -72,12 +73,32 @@ CREATE TABLE conversations (
     name VARCHAR(255) NOT NULL,
     FOREIGN KEY (owner_id) REFERENCES users(user_id)
 );
+
+ALTER TABLE conversations
+ADD COLUMN project_id INTEGER REFERENCES projects(project_id);
+
+
 INSERT INTO conversations (owner_id, name) VALUES
 (1, 'Project Kickoff'),
 (2, 'Development Updates'),
 (1, 'UI/UX Design Meeting'),
 (2, 'Budget Review'),
 (1, 'Project Retrospective');
+
+INSERT INTO conversations (owner_id, project_id, name)
+VALUES
+(2, 1, 'Conversation 1'), -- Assuming project_id 1 exists in projects and user_id 2 exists in users
+(5, 2, 'Conversation 2'); -- Assuming project_id 2 exists in projects and user_id 5 exists in users
+
+UPDATE conversations
+SET project_id = 1
+WHERE id IN (1, 3, 5, 6);
+
+UPDATE conversations
+SET project_id = 2
+WHERE id IN (2, 4);
+
+
 
 
 --Conversation_participants table and seed data:

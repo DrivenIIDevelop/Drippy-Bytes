@@ -25,6 +25,7 @@ Table users {
   user_id int PK
   username varchar
   email varchar
+  hashed_password text
   role text
 }
 
