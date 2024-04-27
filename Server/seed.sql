@@ -1,4 +1,4 @@
---Projects table and seed data:
+--projects table and seed data:
 
 CREATE TABLE projects (
     project_id SERIAL PRIMARY KEY,
@@ -8,12 +8,15 @@ CREATE TABLE projects (
     end_date DATE,
     status TEXT
 );
-INSERT INTO projects (project_name, description, start_date, end_date, status) VALUES
-('Project 1', 'Description of Project 1', '2024-04-15', '2024-05-15', 'Active'),
-('Project 2', 'Description of Project 2', '2024-04-20', '2024-06-20', 'Completed');
+
+INSERT INTO projects (project_name, description, start_date, end_date, status)
+VALUES
+  ('Project A', 'Description for Project A', '2024-05-01', '2024-06-01', 'Active'),
+  ('Project B', 'Description for Project B', '2024-05-15', '2024-07-15', 'Inactive'),
+  ('Project C', 'Description for Project C', '2024-06-01', '2024-08-01', 'Pending');
 
 
---Tasks table and seed data:
+--tasks table and seed data:
 
 CREATE TABLE tasks (
     task_id SERIAL PRIMARY KEY,
@@ -21,6 +24,7 @@ CREATE TABLE tasks (
     title TEXT NOT NULL,
     description TEXT,
     status TEXT,
+    department TEXT,
     priority INTEGER,
     assignee_id INTEGER,
     start_date DATE,
@@ -28,28 +32,24 @@ CREATE TABLE tasks (
     FOREIGN KEY (project_id) REFERENCES projects(project_id),
     FOREIGN KEY (assignee_id) REFERENCES users(user_id)
 );
-INSERT INTO tasks (title, description, project_id, status, priority, assignee_id, start_date, due_date) VALUES
-('Initial Task', 'This is a sample task.', 1, 'Open', 1, 1, '2024-01-01', '2024-01-31'),
-INSERT INTO tasks (title, description, project_id, status, priority, assignee_id, start_date, due_date) VALUES
-('Develop Feature X', 'Develop and test the new feature X as described in the requirements document.', 1, 'Active', 2, 1, '2024-02-01', '2024-02-28');
 
 
---Users table and seed data:
+
+--users table and seed data:
 
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(255) NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
-    role TEXT
+    role TEXT,
+    hashed_password TEXT
 );
-INSERT INTO users (user_id, username, email, role) VALUES
-(1, 'user1', 'user1@example.com', 'Developer'),
-(2, 'user2', 'user2@example.com', 'Manager');
-
-ALTER TABLE users ADD COLUMN hashed_password TEXT;
 
 
--- Files table and seed data:
+
+
+
+-- files table and seed data:
 
 CREATE TABLE files (
     file_id SERIAL PRIMARY KEY,
@@ -60,48 +60,23 @@ CREATE TABLE files (
     user_id INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
-INSERT INTO files (file_name, file_path, uuid, upload_date, user_id)
-VALUES
-  ('testFile', '/uploads/test_file.pdf', 'a1b2c3d4-1234-5678-abcd-1234567890ab', '2024-04-20 10:00:00', 1),
 
 
---Conversations table and seed data:
+
+--conversations table and seed data:
 
 CREATE TABLE conversations (
     id SERIAL PRIMARY KEY,
     owner_id INTEGER NOT NULL,
     name VARCHAR(255) NOT NULL,
+    project_id INTEGER REFERENCES projects(project_id)
     FOREIGN KEY (owner_id) REFERENCES users(user_id)
 );
 
-ALTER TABLE conversations
-ADD COLUMN project_id INTEGER REFERENCES projects(project_id);
-
-
-INSERT INTO conversations (owner_id, name) VALUES
-(1, 'Project Kickoff'),
-(2, 'Development Updates'),
-(1, 'UI/UX Design Meeting'),
-(2, 'Budget Review'),
-(1, 'Project Retrospective');
-
-INSERT INTO conversations (owner_id, project_id, name)
-VALUES
-(2, 1, 'Conversation 1'), -- Assuming project_id 1 exists in projects and user_id 2 exists in users
-(5, 2, 'Conversation 2'); -- Assuming project_id 2 exists in projects and user_id 5 exists in users
-
-UPDATE conversations
-SET project_id = 1
-WHERE id IN (1, 3, 5, 6);
-
-UPDATE conversations
-SET project_id = 2
-WHERE id IN (2, 4);
 
 
 
-
---Conversation_participants table and seed data:
+--conversation_participants table and seed data:
 
 CREATE TABLE conversation_participants (
     conversation_id INTEGER NOT NULL,
@@ -110,31 +85,20 @@ CREATE TABLE conversation_participants (
     FOREIGN KEY (conversation_id) REFERENCES conversations(id),
     FOREIGN KEY (participant_id) REFERENCES users(user_id)
 );
-INSERT INTO conversation_participants (conversation_id, participant_id) VALUES
-(1, 1),
-(1, 2),
-(2, 1),
-(2, 2);
 
 
---Conversation_messages table and seed data:
+
+--conversation_messages table and seed data:
 
 CREATE TABLE conversation_messages (
     conversation_message_id SERIAL PRIMARY KEY,
     conversation_id INTEGER NOT NULL,
     messenger_id INTEGER NOT NULL,
     message TEXT,
+    created_at TIMESTAMP DEFAULT NOW();
     FOREIGN KEY (conversation_id) REFERENCES conversations(id),
     FOREIGN KEY (messenger_id) REFERENCES users(user_id)
 );
-
-ALTER TABLE conversation_messages ADD COLUMN created_at TIMESTAMP DEFAULT NOW();
-
-INSERT INTO conversation_messages (conversation_id, messenger_id, message, created_at)
-VALUES
-(1, 2, 'Message 4', NOW()),  -- Assuming conversation_message_id 4 is not already in use
-(1, 5, 'Message 5', NOW()),  -- Assuming conversation_message_id 5 is not already in use
-(2, 1, 'Message 6', NOW());  -- Assuming conversation_message_id 6 is not already in use
 
 
 
@@ -144,9 +108,51 @@ CREATE TABLE conversation_messages_to_user (
     conversation_message_id INT REFERENCES conversation_messages(conversation_message_id),
     user_id INT REFERENCES users(user_id)
 );
-INSERT INTO conversation_messages_to_user (conversation_message_id, user_id)
-VALUES
-    (2, 2),  -- Assuming user_id 2 exists in users
-    (8, 5),  -- Assuming user_id 5 exists in users
-    (9, 1),  -- Assuming user_id 1 exists in users
-    (10, 2); -- Assuming user_id 2 exists in users
+
+
+--project to user table and seed data:
+
+CREATE TABLE project_to_user (
+    project_to_user_id SERIAL PRIMARY KEY,
+    project_id INT REFERENCES projects(project_id),
+    user_id INT REFERENCES users(user_id),
+    notification_type TEXT
+);
+
+--task_to_user table and seed data:
+
+CREATE TABLE task_to_user (
+    task_to_user_id SERIAL PRIMARY KEY,
+    task_id INT REFERENCES tasks(task_id),
+    user_id INT REFERENCES users(user_id),
+    notification_type TEXT
+);
+
+--notes table and seed data:
+
+CREATE TABLE notes (
+    note_id SERIAL PRIMARY KEY,
+    title VARCHAR,
+    content TEXT,
+    user_id INT REFERENCES users(user_id),
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP
+);
+
+--task_messages table and seed data:
+
+CREATE TABLE task_messages (
+    task_message_id SERIAL PRIMARY KEY,
+    task_id INT REFERENCES tasks(task_id),
+    messenger_id INT REFERENCES users(user_id),
+    message TEXT,
+    created_at TIMESTAMP
+);
+
+--task messages_to_user table and seed data:
+
+CREATE TABLE task_messages_to_user (
+    task_message_to_user_id SERIAL PRIMARY KEY,
+    task_message_id INT REFERENCES task_messages(task_message_id),
+    user_id INT REFERENCES users(user_id)
+);

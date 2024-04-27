@@ -47,20 +47,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// POST a new user
-router.post('/', async (req, res) => {
-  const { username, email, role } = req.body;
-  try {
-    const { rows } = await db.query(
-      'INSERT INTO users (username, email, role) VALUES ($1, $2, $3) RETURNING *',
-      [username, email, role]
-    );
-    res.status(201).json(rows[0]);
-  } catch (error) {
-    console.error('Error creating user:', error);
-    res.status(500).send('Server Error');
-  }
-});
+
 
 // GET a single user by ID
 router.get('/:userId', async (req, res) => {
