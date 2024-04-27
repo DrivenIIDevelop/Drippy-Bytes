@@ -14,6 +14,8 @@ const fileUploadRoutes = require('./routes/fileUploadRoutes');
 const conversationRoutes = require('./routes/conversationsRoutes');
 const conversationParticipantsRoutes = require('./routes/conversation_participantsRoutes');
 const conversationMessagesRoutes = require('./routes/conversation_messagesRoutes'); // Import the new route module for conversation messages
+const authRoutes = require('./routes/auth');
+
 
 // Use route modules
 app.use('/projects', projectRoutes);
@@ -23,6 +25,7 @@ app.use('/files', fileUploadRoutes);
 app.use('/conversations', conversationRoutes);
 app.use('/conversations/:conversationId/participants', conversationParticipantsRoutes); // Add new route for conversation participants
 app.use('/conversations/:conversationId/messages', conversationMessagesRoutes); // Add new route for conversation messages
+app.use('/auth', authRoutes); // Mount the auth routes at /auth base URL
 
 
 

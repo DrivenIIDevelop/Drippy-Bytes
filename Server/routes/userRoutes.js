@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
   try {
     const hashedPassword = await hashPassword(password); // Hash the password
     const { rows } = await db.query(
-      'INSERT INTO users (username, email, role, password) VALUES ($1, $2, $3, $4) RETURNING *',
+      'INSERT INTO users (username, email, role, hashed_password) VALUES ($1, $2, $3, $4) RETURNING *',
       [username, email, role, hashedPassword] // Store the hashed password in the database
     );
     res.status(201).json(rows[0]);

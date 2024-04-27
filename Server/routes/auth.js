@@ -9,6 +9,9 @@ const router = express.Router();
 router.post('/login', async (req, res) => {
   const { usernameOrEmail, password } = req.body;
 
+  console.log('Received login request with username/email:', usernameOrEmail);
+  console.log('Received password:', password);
+
   try {
     // Check if usernameOrEmail is a valid username or email
     const user = await db.query(
