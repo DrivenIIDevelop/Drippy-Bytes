@@ -87,3 +87,17 @@ Table conversation_messages_to_user {
   conversation_message_id int [ref: > conversation_messages.conversation_message_id]
   user_id int [ref: > users.user_id]
 }
+
+TABLE task_messages {
+    task_message_id PK
+    task_id int [ref: > tasks.task_id]
+    messenger_id int [ref: > users.user_id]
+    message text
+    created_at timestamp
+}
+
+TABLE task_messages_to_user {
+    task_message_to_user_id PK
+    task_message_id int [ref: > task_messages. task_message_id]
+    user_id int [ref: > users.user_id]
+}
