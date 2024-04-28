@@ -5,4 +5,11 @@
     background-color: #DEE8F5;
     height: 67px;
     width: 1110px;
+    border-radius: 4px;
+    padding: auto;
+}
+
+.status {
+    height: 42px;
+    width: 110px;
 }
