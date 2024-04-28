@@ -1,0 +1,25 @@
+.NavBar {
+    width: 1440px;
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #033E8A;
+}
+
+.NavBar-right {
+    display: flex;
+    align-items: center;
+}
+
+.option {
+    margin-inline: 24px;
+}
+
+.SearchBar {
+    height: auto;
+}
+
+.right {
+    align-items: end;
+}
