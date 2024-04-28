@@ -40,7 +40,8 @@ function Task(task, people, completed) {
         return (
             <div className="task">
                 {task.task_name}
-                | <img src={statusResources[task.status]} alt={task.status} />
+                | <img src={statusResources[task.status]} alt={task.status} 
+                    className={"status"}/>
                 | {(peopleIcons)}
                 | {task.due_date}
                 | {task.department}
