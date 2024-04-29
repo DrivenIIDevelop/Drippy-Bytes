@@ -20,6 +20,7 @@ const projectUserRoutes = require('./routes/project_userRoutes');
 const fileRoutes = require('./routes/fileRoutes');
 const fileViewsRoutes = require('./routes/fileViewsRoutes');
 const authRoutes = require('./routes/auth');
+const searchRoutes = require('./routes/searchRoutes');
 
 
 // Use route modules
@@ -32,10 +33,11 @@ app.use('/files/upload', fileUploadRoutes);
 app.use('/conversations', conversationRoutes);
 app.use('/conversations/:conversationId/participants', conversationParticipantsRoutes); // Add new route for conversation participants
 app.use('/conversations/:conversationId/messages', conversationMessagesRoutes); // Add new route for conversation messages
-app.use('/projects/:userId', projectUserRoutes);
+app.use('/projects-to-user', projectUserRoutes);
 app.use('/files', fileRoutes);
 app.use('/file/views', fileViewsRoutes);
 app.use('/auth', authRoutes); // Mount the auth routes at /auth base URL
+app.use('/search', searchRoutes);
 
 
 
