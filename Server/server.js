@@ -9,6 +9,8 @@ app.use(express.json()); // Middleware to parse JSON bodies
 // Import route modules
 const projectRoutes = require('./routes/projectRoutes');
 const taskRoutes = require('./routes/taskRoutes');
+const taskUserRoutes = require('./routes/task_userRoutes');
+const taskMessagesUserRoutes = require('./routes/task_messagesUserRoutes');
 const userRoutes = require('./routes/userRoutes');
 const fileUploadRoutes = require('./routes/fileUploadRoutes');
 const conversationRoutes = require('./routes/conversationsRoutes');
@@ -23,6 +25,8 @@ const authRoutes = require('./routes/auth');
 // Use route modules
 app.use('/projects', projectRoutes);
 app.use('/tasks', taskRoutes);
+app.use('/task-to-user', taskUserRoutes);
+app.use('/task-messages-to-user', taskMessagesUserRoutes);
 app.use('/users', userRoutes);
 app.use('/files/upload', fileUploadRoutes);
 app.use('/conversations', conversationRoutes);
