@@ -2,3 +2,10 @@
     display: inline-flex;
     flex-direction: row;
 }
+
+.auth button {
+    color: white;
+    background-color: #033E8A;
+    width: 566px;
+    height: 48px;
+}
