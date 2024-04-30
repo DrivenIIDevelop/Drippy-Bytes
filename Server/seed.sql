@@ -63,6 +63,16 @@ CREATE TABLE files (
 
 
 
+CREATE TABLE file_views (
+    view_id SERIAL PRIMARY KEY,
+    file_id INT NOT NULL,
+    user_id INT NOT NULL,
+    view_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (file_id) REFERENCES files(file_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+
 --conversations table and seed data:
 
 CREATE TABLE conversations (

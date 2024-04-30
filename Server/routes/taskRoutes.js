@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router({ mergeParams: true }); // Enable params to be merged, allowing access to :projectId
 const db = require('../db/db');
 
-// GET all tasks for a specific project
+
+
+// GET all tasks
 router.get('/', async (req, res) => {
-  const projectId = req.params.projectId;
   try {
-    const { rows } = await db.query('SELECT * FROM tasks WHERE project_id = $1', [projectId]);
+    const { rows } = await db.query('SELECT * FROM tasks');
     res.json(rows);
   } catch (error) {
     console.error('Error fetching tasks:', error);
@@ -14,21 +15,35 @@ router.get('/', async (req, res) => {
   }
 });
 
+// GET all tasks for a specific project
+router.get('/projects/:projectId', async (req, res) => {
+  const projectId = req.params.projectId;
+  try {
+    const { rows } = await db.query('SELECT * FROM tasks WHERE project_id = $1', [projectId]);
+    res.json(rows);
+  } catch (error) {
+    console.error('Error fetching tasks for project:', error);
+    res.status(500).send('Server Error');
+  }
+});
+
 // POST a new task within a project
 router.post('/', async (req, res) => {
-  const projectId = req.params.projectId;
-  const { title, description, status, priority, assignee_id, start_date, due_date } = req.body;
+  const { project_id, title, description, status, priority, assignee_id, start_date, due_date } = req.body; // Updated line
+
   try {
     const { rows } = await db.query(
       'INSERT INTO tasks (project_id, title, description, status, priority, assignee_id, start_date, due_date) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
-      [projectId, title, description, status, priority, assignee_id, start_date, due_date]
+      [project_id, title, description, status, priority, assignee_id, start_date, due_date] // Updated line
     );
+
     res.status(201).json(rows[0]);
   } catch (error) {
     console.error('Error creating task:', error);
     res.status(500).send('Server Error');
   }
 });
+
 
 // GET a single task by ID
 router.get('/:taskId', async (req, res) => {
