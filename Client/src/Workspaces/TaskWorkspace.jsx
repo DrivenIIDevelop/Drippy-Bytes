@@ -4,7 +4,7 @@ import Workspaces from "./Workspaces";
 
 function TaskWorkspace() {
     return(
-        <div>
+        <div className="flex-horizontal">
             <Workspaces/>
             <TaskList />
         </div>

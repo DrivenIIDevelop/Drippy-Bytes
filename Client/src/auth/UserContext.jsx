@@ -1,5 +1,23 @@
-import React from "react";
+import { useState, createContext } from "react";
+import ProjectPulseApi from "../api/api";
 
-const UserContext = React.createContext();
+export const UserContext = createContext();
 
-export default UserContext;
+export const UserContextProvider = ({ children }) => {
+    const [currentUser, setCurrentUser] = useState(null);
+
+    const login = async (inputs) => {
+        const res = await ProjectPulseApi.login(inputs);
+        setCurrentUser(res.data);
+    };
+
+    const logout = async (inputs) => {
+        setCurrentUser(null);
+    };
+
+    return (
+        <AuthContext.Provider value={{ currentUser, login, logout }}>
+            {children}
+        </AuthContext.Provider>
+    );
+};

@@ -1,6 +1,49 @@
 .Workspaces {
+    margin-top: 64px;
     width: 236px;
     height: 924px;
     background-color: #033E8A;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+    justify-content: space-between;
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal;
+}
+
+
+.workspace {
+    display: flex;
+    height: 56px;
+    justify-content: left;
+    margin-left: 16px;
+}
+
+.project {
+    margin-left: 16px;
+}
+
+.workspace-dropdown {
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 20px;
+    font-style: normal;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.flex-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
 }

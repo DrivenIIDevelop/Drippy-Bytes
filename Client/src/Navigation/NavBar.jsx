@@ -1,26 +1,27 @@
-import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import SearchForm from '../Forms/SearchForm';
+import { Link, Outlet } from 'react-router-dom';
+import SearchForm from '../LoginSignupSearch/SearchForm';
 import UserInitials from '../Users/UserInitials';
 import { MdNotificationsNone } from "react-icons/md";
-import UserContext from '../auth/UserContext';
 import './NavBar.css'
 
 function NavBar() {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = { first_name: "Jimmy", last_name: "Dean" }
   function loggedInNav() {
     return (
       <div className="NavBar">
-        <p className='option'>Project Pulse</p>
+        <div className="logo-name">
+          <img src="./src/assets/logo.png" alt="project pulse logo" />
+          <p className="option">Project Pulse</p>
+        </div>
         <div className="NavBar-right">
           <SearchForm />
-          <MdNotificationsNone className='icon'/>
-          <Link to="/profile" className='option'>
+          <MdNotificationsNone className="icon" />
+          <Link to="/profile" className="option">
             <UserInitials firstName={currentUser.first_name} lastName={currentUser.last_name} />
           </Link>
         </div>
       </div>
-    )
+    );
   }
 
   function loggedOutNav() {
@@ -33,9 +34,12 @@ function NavBar() {
 
 
   return (
-    <nav>
-      {currentUser ? loggedInNav() : loggedOutNav()}
-    </nav>
+    <div>
+      <nav>
+        {currentUser ? loggedInNav() : loggedOutNav()}
+      </nav>
+      <Outlet />
+    </div>
   );
 
 }

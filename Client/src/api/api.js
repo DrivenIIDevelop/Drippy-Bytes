@@ -22,5 +22,14 @@ class ProjectPulseApi {
             throw Array.isArray(message) ? message : [message];
         }
     }
+
+    static async login(data) {
+        let res = await this.request(`auth/token`, data, "post");
+        return res.token;
+    }
+
+    
 }
+
+export default ProjectPulseApi;
 

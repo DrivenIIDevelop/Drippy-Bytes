@@ -1,23 +1,21 @@
 import UserInitials from "../Users/UserInitials";
-import "./Task.css"
 
-function Task(task, people, completed) {
+function Task(task) {
     task = task.task;
-    const fakeFriends = [{ firstName: "John", lastName: "Doe" },
-    { firstName: "Bob", lastName: "Saget" }];
-    people = fakeFriends;
-    console.log(people);
+    const people = task.people;
     let peopleIcons = [];
     if (people.length > 2) {
-        peopleIcons.push(<UserInitials firstName={people[0].firstName}
-            lastName={people[0].lastName} />, <UserInitials firstName={people[1].firstName}
-                lastName={people[1].lastName} />,
-            "+" + people.length - 2);
+        peopleIcons.push(<UserInitials firstName={people[0].first_name}
+            lastName={people[0].last_name} />, <UserInitials firstName={people[1].first_name}
+                lastName={people[1].last_name} />,
+            `+${people.length - 2}`);
     } else if (people.length > 0) {
-        peopleIcons.push(<UserInitials firstName={people[0].firstName}
-            lastName={people[0].lastName} />);
-        peopleIcons.push(<UserInitials firstName={people[1].firstName}
-            lastName={people[1].lastName} />);
+        peopleIcons.push(<UserInitials firstName={people[0].first_name}
+            lastName={people[0].last_name} />);
+        if (people[1]) {
+            peopleIcons.push(<UserInitials firstName={people[1].first_name}
+                lastName={people[1].last_name} />);
+        }
     }
 
     const statusResources = {
@@ -26,26 +24,24 @@ function Task(task, people, completed) {
         "overdue": "./src/assets/overdue.svg"
     }
 
-    console.log(peopleIcons)
-
-    if (completed) {
+    if (task.date_completed) {
         return (
-            <div className="task">
-                {task.task_name}
-                | {task.date_completed}
-                | <a>View Details</a>
-            </div>
+            <tr className="task">
+                <td className="name_column">{task.task_name}</td>
+                <td className="department_column">{task.date_completed}</td>
+                <td className="department_column"><a className="view_details">View Details</a></td>
+            </tr>
         )
     } else {
         return (
-            <div className="task">
-                {task.task_name}
-                | <img src={statusResources[task.status]} alt={task.status} 
-                    className={"status"}/>
-                | {(peopleIcons)}
-                | {task.due_date}
-                | {task.department}
-            </div>
+            <tr className="task">
+                <td className="name_column">{task.task_name}</td>
+                <td className="status_column"><img src={statusResources[task.status]} alt={task.status}
+                    className={"status"} /></td>
+                <td className="people_column">{(peopleIcons)}</td>
+                <td className="date_column">{task.date}</td>
+                <td className="department_column">{task.department}</td>
+            </tr>
         )
     }
 }
