@@ -1,24 +1,10 @@
-import Workspaces from './Navigation/Workspaces'
-import NavBar from './Navigation/NavBar'
-import Task from './Tasks/Task'
+import { RouterProvider } from 'react-router-dom';
 import './App.css'
 
-function App() {
-  const fakeTask = {task_name: "wash dishes", date_completed: "4/26",
-status: "in_progress", due_date: "4/29", department: "Development"};
-
-
-
-
+function App({router}) {
   return (
-    <>
-      <NavBar/>
-      <div className='main'>
-        <Workspaces/>
-        <Task task = {fakeTask}/>
-      </div>
-    </>
-  )
+    <RouterProvider router={router} />
+  );
 }
 
-export default App
+export default App;

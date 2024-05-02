@@ -1,0 +1,103 @@
+.SignupFormContainer {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: stretch;
+}
+
+.LoginFormContainer {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+}
+
+form.SignupForm {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-items: stretch;
+}
+
+form.LoginForm {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-items: stretch;
+}
+
+.SignupForm input {
+    width: 566px;
+    height: 40px;
+    background-color: white;
+}
+
+
+.signupNames {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 573px;
+}
+
+.half input {
+    width: 265px;
+}
+
+.LoginForm input {
+    width: 566px;
+    height: 40px;
+    background-color: white;
+}
+
+.FormFlex {
+    width: 1400px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 48px;
+    color: black;
+    background-color: white;
+    align-content: stretch;
+}
+
+div.FormDataFlex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.ad {
+    width: 684px;
+    height: 897px;
+    border-radius: 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    width: 574px;
+    height: 48px;
+    border-radius: 0px;
+    background-color: #033E8A;
+    top: 581px;
+    padding: 0px 16px 0px 16px;
+    gap: 4px;
+    color: white;
+}
+
+label {
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}

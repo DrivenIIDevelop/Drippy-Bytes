@@ -1,0 +1,74 @@
+.TaskList {
+    margin-top: 64px;
+    margin-left: 24px;
+}
+
+
+.headers {
+    text-align: left;
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.TaskDropdown {
+    text-align: left;
+}
+
+.name_column {
+    padding-left: 10px;
+    width: 494px;
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: normal;
+}
+
+.status_column {
+    padding-left: 10px;
+    width: 134px;
+}
+
+.people_column {
+    width: 118px;
+    display: flex;
+    padding-top: 18px;
+    padding-left: 10px;
+}
+
+.date_column {
+    width: 118px;
+    padding-left: 10px;
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: normal;
+}
+
+.department_column {
+    width: 244px;
+    padding-left: 10px;
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: normal;
+}
+
+
+.create_task {
+    width: 156px;
+}
+
+.button_div {
+    width: 990px;
+    display: flex;
+    justify-content: end;
+}
+
+a.view_details {
+    color: black;
+}

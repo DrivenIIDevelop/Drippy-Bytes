@@ -1,0 +1,89 @@
+.landingStart {
+    background: linear-gradient(180deg, #FFFFFF 0%, #91E0EF 44.5%, #0078B7 68.5%, #CAF1F8 87.5%);
+    display: flex;
+    color: black;
+    align-items: center;
+    width: 1440px;
+    height: 506px;
+    left: 0;
+    margin-bottom: 0;
+}
+
+.landingStartRight {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+p {
+    text-align: center;
+    width: 598px;
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: normal;
+}
+
+.landingStart img {
+    margin-right: 20px;
+    width: 566px;
+    height: 378px;
+    background-clip: content-box;
+}
+
+.landingStart div {
+    flex: 1;
+    text-align: center;
+}
+
+.landingButton {
+    width: 211px;
+    height: 48px;
+    margin-top: 10px;
+    background-color: #033E8A;
+    color: white;
+    font-family: "Libre Franklin", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: normal;
+}
+
+.landingHighlight {
+    width: 1440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    color: black;
+    margin-top: 0;
+    height: 439px;
+}
+
+h3 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.image-group {
+    display: flex;
+    flex-direction: row;
+    height: 306px;
+    justify-content: center;
+}
+
+figcaption {
+    width: 300px;
+    text-align: center;
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: normal;
+}
+

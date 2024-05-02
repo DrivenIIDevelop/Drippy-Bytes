@@ -1,8 +1,13 @@
-.task {
-    display: inline-flex;
-    flex-direction: row;
+tr.task {
+    width: 1110px;
     color: black;
     background-color: #DEE8F5;
     height: 67px;
-    width: 1110px;
+    border-radius: 6px;
+    padding: auto;
+}
+
+.status {
+    height: 42px;
+    width: 110px;
 }
