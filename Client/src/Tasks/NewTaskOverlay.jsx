@@ -89,7 +89,6 @@ function NewTaskOverlay(stopCreatingTask) {
 
                     <div className="final_buttons">
                         <div><button className="cancel" onClick={handleSubmit}>Cancel</button></div>
-                        
                         <div><button className="save" onClick={handleSubmit}>Save Task</button></div>
                     </div>
                 </form>
