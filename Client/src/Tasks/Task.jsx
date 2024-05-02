@@ -1,7 +1,10 @@
 import UserInitials from "../Users/UserInitials";
+import "./Task.css";
 
 function Task(task) {
+
     task = task.task;
+    const key = task.task_id;
     const people = task.people;
     let peopleIcons = [];
     if (people.length > 2) {
@@ -26,7 +29,7 @@ function Task(task) {
 
     if (task.date_completed) {
         return (
-            <tr className="task">
+            <tr key={key} className="task">
                 <td className="name_column">{task.task_name}</td>
                 <td className="department_column">{task.date_completed}</td>
                 <td className="department_column"><a className="view_details">View Details</a></td>
@@ -34,7 +37,7 @@ function Task(task) {
         )
     } else {
         return (
-            <tr className="task">
+            <tr key={key} className="task">
                 <td className="name_column">{task.task_name}</td>
                 <td className="status_column"><img src={statusResources[task.status]} alt={task.status}
                     className={"status"} /></td>
