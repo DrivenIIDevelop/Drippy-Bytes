@@ -1,0 +1,139 @@
+.NewTaskOverlay {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 925px;
+    height: 580px;
+    display: flex;
+    flex-direction: column;
+    border: solid black;
+    border-width: 4px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.NewTaskForm {
+    background-color: #FFFFFF;
+    padding-left: 8px;
+    padding-right: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 528px;
+}
+
+
+
+.OverlayBar {
+    width: 925px;
+    height: 52px;
+    background-color: #033E8A;
+    color: #FFFFFF;
+}
+
+
+.task_name {
+    display: flex;
+    flex-direction: column;
+}
+
+input.task_name {
+    width: 877px;
+    height: 43px;
+    border-radius: 4px;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+}
+
+input.description {
+    width: 877px;
+    height: 122px;
+    border-radius: 4px;
+}
+
+.assigned_date_department {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.assigned {
+    display: flex;
+    flex-direction: column;
+}
+
+select.assigned {
+    padding: 10px;
+    width: 260px;
+    height: 43px;
+    border-radius: 4px;
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+}
+
+input.date {
+    width: 260px;
+    height: 43px;
+    border-radius: 4px;
+}
+
+.department {
+    display: flex;
+    flex-direction: column;
+}
+
+select.department {
+    padding: 10px;
+    width: 260px;
+    height: 43px;
+    border-radius: 4px;
+}
+
+
+
+button.transparent-button {
+    background-color: transparent;
+    color: #FFFFFF;
+    width: 30px;
+    height: 60px;
+    position: relative;
+    left: 880px;
+    top: -65px;
+    border: 0px;
+}
+
+.final_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 908px;
+}
+
+button.cancel {
+    background-color: #FFFFFF;
+    color: #033E8A;
+    width: 175px;
+    margin-right: 6px;
+    border-radius: 4px;
+}
+
+button.save {
+    color: #FFFFFF;
+    background-color: #033E8A;
+    width: 175px;
+    border-radius: 4px;
+}

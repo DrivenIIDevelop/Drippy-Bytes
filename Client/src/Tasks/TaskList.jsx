@@ -1,14 +1,17 @@
 import Task from "./Task";
-import { useState } from "react";
+import { startTransition, useState } from "react";
 import { FaAngleDown } from "react-icons/fa6";
+import NewTaskOverlay from "./NewTaskOverlay";
 import "./TaskList.css";
 
 
 function TaskList() {
+    const [creatingTask, setCreatingTask] = useState(false);
     const [userTasks, setUserTasks] = useState(
         {
             completed: [
                 {
+                    task_id: 0,
                     task_name: "Kickoff Meeting",
                     status: "in_progress",
                     people: [{ first_name: "Maraiah", last_name: "Carey" }],
@@ -17,6 +20,7 @@ function TaskList() {
                     date_completed: "April 20"
                 }
             ], incomplete: [{
+                task_id: 1,
                 task_name: "Create User Stories",
                 status: "in_progress",
                 people: [{ first_name: "Maraiah", last_name: "Carey" }],
@@ -24,6 +28,7 @@ function TaskList() {
                 department: "Research"
             },
             {
+                task_id: 2,
                 task_name: "Prepare Visual Inspiration",
                 status: "not_started",
                 people: [{ first_name: "Maraiah", last_name: "Carey" },
@@ -32,6 +37,7 @@ function TaskList() {
                 department: "Design"
             },
             {
+                task_id: 3,
                 task_name: "Create User Flows",
                 status: "not_started",
                 people: [{ first_name: "Dewey", last_name: "Cox" },
@@ -40,6 +46,7 @@ function TaskList() {
                 department: "Research"
             },
             {
+                task_id: 4,
                 task_name: "Finalize Database Structure",
                 status: "not_started",
                 people: [{ first_name: "Chase", last_name: "Winner" },
@@ -51,6 +58,12 @@ function TaskList() {
             }
             ]
         });
+
+
+
+    function flipCreatingTask() {
+        setCreatingTask(!creatingTask);
+    }
 
 
     if (userTasks.completed.length === 0 && userTasks.incomplete.length == 0) {
@@ -73,9 +86,17 @@ function TaskList() {
                         {userTasks.incomplete.map((t) => <Task task={t} />)}
                     </tbody>
                 </table>
-                <div className="button_div">
-                    <button className="create_task">+Create a Task</button>
-                </div>
+                <br />
+                {creatingTask === true ?
+                    <div className="modal">
+                    <NewTaskOverlay stopCreatingTask={flipCreatingTask} />
+                    </div>
+                    :
+                    <div className="button_div">
+                        <button className="create_task" onClick={flipCreatingTask}
+                        >+Create a Task</button>
+                    </div>}
+                <br />
                 <table>
                     <thead>
                         <tr className="headers">
