@@ -9,10 +9,12 @@ function NavBar() {
   function loggedInNav() {
     return (
       <div className="NavBar">
-        <div className="logo-name">
-          <img src="./src/assets/logo.png" alt="project pulse logo" />
-          <p className="option">Project Pulse</p>
-        </div>
+        <Link to="/" className='logoLink'>
+          <div className="logo-name">
+            <img src="./src/assets/logo.png" alt="project pulse logo" />
+            <p className="option">Project Pulse</p>
+          </div>
+        </Link>
         <div className="NavBar-right">
           <SearchForm />
           <MdNotificationsNone className="icon" />
@@ -20,7 +22,7 @@ function NavBar() {
             <UserInitials firstName={currentUser.first_name} lastName={currentUser.last_name} />
           </Link>
         </div>
-      </div>
+      </div >
     );
   }
 

@@ -43,7 +43,7 @@
     flex-direction: row;
 }
 
-a {
+a.workspace {
     color: #FFFFFF;
     text-decoration: none;
 }

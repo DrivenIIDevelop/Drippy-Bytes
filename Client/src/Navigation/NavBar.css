@@ -20,6 +20,11 @@
     width: 250px;
 }
 
+.logoLink {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .logo-name img {
     position: fixed;
     top: 12px;
@@ -67,7 +72,7 @@
     width: 30px;
 }
 
-.NavBar a.option > .user-initials {
+a.option {
     text-decoration: none;
 }
 

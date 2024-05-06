@@ -17,9 +17,9 @@ function Workspaces(active, logout) {
         <hr />
       </div>
       <div className="Navigate">
-        <div className="workspace"><Link to="/tasks"><FaListCheck />&nbsp;Tasks</Link></div>
-        <div className="workspace"><Link to="/files"><FaRegFileAlt />&nbsp;Files</Link></div>
-        <div className="workspace"><Link to="/messaging"><FaEnvelopeOpen />&nbsp;Messaging Center</Link></div>
+        <div className="workspace"><Link to="/tasks" className="workspace"><FaListCheck />&nbsp;Tasks</Link></div>
+        <div className="workspace"><Link to="/files" className="workspace"><FaRegFileAlt />&nbsp;Files</Link></div>
+        <div className="workspace"><Link to="/messages" className="workspace"><FaEnvelopeOpen />&nbsp;Messaging Center</Link></div>
         <div className="workspace"><FaRegCalendarAlt />&nbsp;Calendar</div>
         <div className="workspace"><FaRegEdit />&nbsp;Ideas/Note-Taking</div>
       </div>
@@ -28,7 +28,7 @@ function Workspaces(active, logout) {
         <div className="workspace"><FaQuestion />&nbsp;Tutorials & FAQ</div>
         <div className="workspace"><CiSettings />&nbsp;Settings</div>
         <div className="workspace"><LuMessagesSquare />&nbsp;Contact Us</div>
-        <div className="workspace"><Link to="/login"><MdLogout />&nbsp;Log Out</Link></div>
+        <div className="workspace"><Link to="/login" className="workspace"><MdLogout />&nbsp;Log Out</Link></div>
       </div>
     </div>
   )

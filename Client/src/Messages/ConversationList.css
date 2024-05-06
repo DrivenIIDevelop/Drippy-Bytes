@@ -1,0 +1,76 @@
+.ConversationList {
+    width: 330px;
+    border-radius: 4px;
+    margin-left: 24px;
+    height: 899px;
+    border-color: darkgrey;
+    border-style: solid;
+    margin-top: 64px;
+}
+
+.conversationsBar {
+    display: flex;
+    flex-direction: row;
+    width: 311px;
+    height: 56px;
+    background-color: #033E8A;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.addConversation {
+    font-size: 36px;
+    background-color: transparent;
+    width: 40px;
+    height: 36px;
+    border: none;
+}
+
+.conversationsHeader {
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 24px;
+}
+
+.Conversation {
+    border-bottom: 1px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-style: solid;
+    border-color: darkgrey;
+    padding-left: 10px;
+    width: 318px;
+    height: 74px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.conversationPreview {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.conversationPreviewMessage {
+    color: darkgrey;
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 14px;
+    font-style: normal;
+}
+
+.conversationName {
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+}

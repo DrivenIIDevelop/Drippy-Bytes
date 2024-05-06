@@ -11,7 +11,7 @@ function LoginSignupLayout(mode) {
         (<div className="FormDataFlex">
             <img src="./src/assets/login-Google-full.png" />
             <img src="./src/assets/login-Apple-full.png" />
-            <p>Don't have an account with us? <Link to="/signup">Sign Up</Link></p>
+            <p>Don't have an account with us? <Link to="/signup" className="normLink">Sign Up</Link></p>
         </div>
         )
         :
@@ -20,7 +20,7 @@ function LoginSignupLayout(mode) {
                 <img src="../src/assets/signup-Google-half.jpg" alt="Google Signup"/>
                 <img src="../src/assets/signup-Apple-half.jpg" alt="Apple Signup"/>
             </div>
-            <p>Already have an account? <Link to="/login">Log In</Link></p>
+            <p>Already have an account? <Link to="/login" className="normLink">Log In</Link></p>
         </div>
         )
 

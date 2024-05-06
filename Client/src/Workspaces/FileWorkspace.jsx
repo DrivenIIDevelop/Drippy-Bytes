@@ -1,13 +1,13 @@
-import TaskList from "../Tasks/TaskList";
+import FileList from "../Files/FileList";
 import Workspaces from "./Workspaces";
 
-function TaskWorkspace() {
+function FileWorkspace() {
     return(
         <div className="flex-horizontal">
             <Workspaces/>
-            <TaskList />
+            <FileList />
         </div>
-    )
+    );
 }
 
-export default TaskWorkspace;
+export default FileWorkspace;

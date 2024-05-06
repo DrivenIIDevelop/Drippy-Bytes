@@ -14,11 +14,13 @@ function SignupForm() {
 
     const [formErrors, setFormErrors] = useState([]);
 
+    const navigate = useNavigate();
     async function handleSubmit(evt) {
         evt.preventDefault();
-        let result = await signup(formData);
+        //let result = await login(formData);
+        let result = {success: true};
         if (result.success) {
-            useNavigate("/tasks");
+            navigate("/walkthrough");
         } else {
             setFormErrors(result.errors);
         }
