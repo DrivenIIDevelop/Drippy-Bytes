@@ -8,13 +8,16 @@ function LoginForm() {
         password: "",
     });
 
+    const navigate = useNavigate();
     const [formErrors, setFormErrors] = useState([]);
 
     async function handleSubmit(evt) {
         evt.preventDefault();
-        let result = await login(formData);
+        //let result = await login(formData);
+        let result = {success: true};
         if (result.success) {
-            useNavigate("/tasks");
+            console.log("success")
+            navigate("/tasks");
         } else {
             setFormErrors(result.errors);
         }
@@ -39,6 +42,7 @@ function LoginForm() {
                         required
                     />
                 </div>
+                <CiMail />
                 <div className="card">
                     <label>Password</label>
                     <input

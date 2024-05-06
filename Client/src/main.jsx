@@ -6,8 +6,9 @@ import LandingPage from './LandingPage.jsx'
 import NavBar from './Navigation/NavBar.jsx'
 import LoginSignupLayout from './LoginSignupSearch/LoginSignupLayout.jsx'
 import TaskWorkspace from './Workspaces/TaskWorkspace.jsx'
-import FileList from './Files/FileList.jsx'
+import FileWorkspace from './Workspaces/FileWorkspace.jsx'
 import WalkthroughPage from './WalkthroughPage.jsx'
+import MessagingWorkspace from './Workspaces/MessagingWorkspace.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,7 +17,8 @@ const router = createBrowserRouter(
       <Route path="login" element={<LoginSignupLayout mode={"login"} />} />
       <Route path="signup" element={<LoginSignupLayout mode={"signup"} />} />
       <Route path="tasks" element={<TaskWorkspace />} />
-      <Route path="files" element={<FileList />} />
+      <Route path="files" element={<FileWorkspace />} />
+      <Route path="messages" element={<MessagingWorkspace />} />
       <Route path="walkthrough" element={<WalkthroughPage />} />
     </Route>
   )

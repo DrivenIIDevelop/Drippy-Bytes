@@ -1,0 +1,165 @@
+.MessageBox {
+    margin-top: 64px;
+    margin-left: 24px;
+    width: 802px;
+    height: 757px;
+    border-color: darkgrey;
+    border-style: solid;
+}
+
+.messageBoxBar {
+    display: flex;
+    flex-direction: row;
+    background-color: #0338BA;
+    color: #FFFFFF;
+    width: 782px;
+    height: 52px;
+    font-size: 24px;
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.MessageBoxImages {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+}
+
+.search_icon {
+    margin-right: 10px;
+}
+
+.notification_icon {
+    margin-right: 10px;
+}
+
+.messageBoxMain{
+    width: 800px;
+    display: grid;
+}
+
+.selfMessage {
+    justify-self: flex-end;
+    margin-bottom: 10px;
+}
+
+.otherMessage {
+    justify-self: flex-start;
+    margin-bottom: 10px;
+}
+
+.otherMessageBody{
+    margin-left: 30px;
+    background-color: #0338BA;
+    color: white;
+    width: 300px;
+    height: 150pxpx;
+    padding: 10px;
+    text-align: center;
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: normal;
+    border-radius: 4px;
+}
+
+.messageUnder {
+    display: grid;
+    width: 340px;
+}
+
+.senderName {
+    margin-left: 30px;
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    color: #535353;
+}
+
+.timeUnder {
+    margin-top: -30px;
+    color: #535353;
+    justify-self: end;
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+}
+
+.time {
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    color: #535353;
+}
+
+.selfMessageBody {
+    background-color: #e9e9e9;
+    width: 150px;
+    height: 37px;
+    padding: 10px;
+    text-align: center;
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: normal;
+    border-radius: 4px;
+}
+
+.sendChatForm {
+    width: 754px;
+    height: 48px;
+    margin-left: 20px;
+    display: flex;
+    position: relative;
+}
+
+.sendMessage {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border: none;
+    background-color: transparent;
+    color: black;
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: normal;
+    border-radius: 4px;
+}
+
+.outgoingMessage {
+    width: 754px;
+    height: 48px;
+    padding-left: 48px;
+}
+
+.chatSmile {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+}

@@ -14,7 +14,7 @@ function TaskList() {
                     task_id: 0,
                     task_name: "Kickoff Meeting",
                     status: "in_progress",
-                    people: [{ first_name: "Maraiah", last_name: "Carey" }],
+                    people: [{ id: 0, first_name: "Maraiah", last_name: "Carey" }],
                     date: "May 3",
                     department: "Research",
                     date_completed: "April 20"
@@ -23,7 +23,7 @@ function TaskList() {
                 task_id: 1,
                 task_name: "Create User Stories",
                 status: "in_progress",
-                people: [{ first_name: "Maraiah", last_name: "Carey" }],
+                people: [{ id: 0, first_name: "Maraiah", last_name: "Carey" }],
                 date: "May 3",
                 department: "Research"
             },
@@ -31,8 +31,8 @@ function TaskList() {
                 task_id: 2,
                 task_name: "Prepare Visual Inspiration",
                 status: "not_started",
-                people: [{ first_name: "Maraiah", last_name: "Carey" },
-                { first_name: "Dewey", last_name: "Cox" }],
+                people: [{ id: 0, first_name: "Maraiah", last_name: "Carey" },
+                { id: 1, first_name: "Dewey", last_name: "Cox" }],
                 date: "May 3",
                 department: "Design"
             },
@@ -40,8 +40,8 @@ function TaskList() {
                 task_id: 3,
                 task_name: "Create User Flows",
                 status: "not_started",
-                people: [{ first_name: "Dewey", last_name: "Cox" },
-                { first_name: "Ricky", last_name: "Bobby" }],
+                people: [{ id: 1, first_name: "Dewey", last_name: "Cox" },
+                { id: 2, first_name: "Ricky", last_name: "Bobby" }],
                 date: "May 7",
                 department: "Research"
             },
@@ -50,9 +50,9 @@ function TaskList() {
                 task_name: "Finalize Database Structure",
                 status: "not_started",
                 people: [{ first_name: "Chase", last_name: "Winner" },
-                { first_name: "Mike", last_name: "So" },
-                { first_name: "Toby", last_name: "Bro" },
-                { first_name: "Sev", last_name: "Very" }],
+                { id: 3, first_name: "Mike", last_name: "So" },
+                { id: 4, first_name: "Toby", last_name: "Bro" },
+                { id: 5, first_name: "Sev", last_name: "Very" }],
                 date: "May 10",
                 department: "Development"
             }
