@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5432";
+//process.env.REACT_APP_API_BASE_URL ||
+const BASE_URL =  "http://localhost:3000";
 
 class ProjectPulseApi {
     // the token for interaction with the API will be stored here.
@@ -28,7 +29,10 @@ class ProjectPulseApi {
         return res.token;
     }
 
-    
+    static async signup(data) {
+        let res = await this.request(`users`, data, "post");
+        return res;
+    }
 }
 
 export default ProjectPulseApi;
