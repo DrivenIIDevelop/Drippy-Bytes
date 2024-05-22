@@ -1,6 +1,7 @@
 import { CiMail } from "react-icons/ci";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ProjectPulseApi from "../api/api";
 
 
 function SignupForm() {
@@ -17,10 +18,10 @@ function SignupForm() {
     const navigate = useNavigate();
     async function handleSubmit(evt) {
         evt.preventDefault();
-        //let result = await login(formData);
-        let result = {success: true};
-        if (result.success) {
-            navigate("/walkthrough");
+        let result = await ProjectPulseApi.signup(formData);
+        if (result.first_name) {
+            useNavigate("/tasks");
+
         } else {
             setFormErrors(result.errors);
         }

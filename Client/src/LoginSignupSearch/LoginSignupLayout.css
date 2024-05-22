@@ -87,6 +87,7 @@ div.FormDataFlex {
 button {
     width: 574px;
     height: 48px;
+    margin-top: 20px;
     border-radius: 0px;
     background-color: #033E8A;
     top: 581px;

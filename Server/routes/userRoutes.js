@@ -18,12 +18,12 @@ const hashPassword = async (password) => {
 
 //Create a new user
 router.post('/', async (req, res) => {
-  const { username, email, role, password } = req.body;
+  const { first_name, last_name, email, password } = req.body;
   try {
     const hashedPassword = await hashPassword(password); // Hash the password
     const { rows } = await db.query(
-      'INSERT INTO users (username, email, role, hashed_password) VALUES ($1, $2, $3, $4) RETURNING *',
-      [username, email, role, hashedPassword] // Store the hashed password in the database
+      'INSERT INTO users (first_name, last_name, email, hashed_password) VALUES ($1, $2, $3, $4) RETURNING *',
+      [first_name, last_name, email, hashedPassword] // Store the hashed password in the database
     );
     res.status(201).json(rows[0]);
   } catch (error) {

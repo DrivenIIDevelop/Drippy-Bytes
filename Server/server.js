@@ -1,9 +1,14 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const upload = require('./config/multerConfig');
 const path = require('path');
 
+if(process.env.TEST){
+
+}
+app.use(cors());
 app.use(express.json()); // Middleware to parse JSON bodies
 
 // Import route modules
