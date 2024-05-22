@@ -15,11 +15,13 @@ function SignupForm() {
 
     const [formErrors, setFormErrors] = useState([]);
 
+    const navigate = useNavigate();
     async function handleSubmit(evt) {
         evt.preventDefault();
         let result = await ProjectPulseApi.signup(formData);
         if (result.first_name) {
             useNavigate("/tasks");
+
         } else {
             setFormErrors(result.errors);
         }

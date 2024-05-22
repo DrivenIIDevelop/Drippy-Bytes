@@ -6,19 +6,12 @@ function Task(task) {
     task = task.task;
     const key = task.task_id;
     const people = task.people;
-    let peopleIcons = [];
+    const peopleIcons = people.slice(0, 2).map((person) => (
+        <UserInitials key={person.id} firstName={person.first_name} lastName={person.last_name} />
+    ))
+
     if (people.length > 2) {
-        peopleIcons.push(<UserInitials firstName={people[0].first_name}
-            lastName={people[0].last_name} />, <UserInitials firstName={people[1].first_name}
-                lastName={people[1].last_name} />,
-            `+${people.length - 2}`);
-    } else if (people.length > 0) {
-        peopleIcons.push(<UserInitials firstName={people[0].first_name}
-            lastName={people[0].last_name} />);
-        if (people[1]) {
-            peopleIcons.push(<UserInitials firstName={people[1].first_name}
-                lastName={people[1].last_name} />);
-        }
+        peopleIcons.push(<span key="additional">+{people.length - 2}</span>);
     }
 
     const statusResources = {

@@ -1,0 +1,55 @@
+.FileAdder {
+    margin-top: 80px;
+    width: 1100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.FileHeader {
+    text-align: left;
+    margin-left: 24px;
+}
+
+.addALink {
+    background-color: #FFFFFF;
+    color: #033E8A;
+    width: 175px;
+    margin-right: 6px;
+    border-radius: 4px;
+}
+
+.Upload {
+    color: #FFFFFF;
+    background-color: #033E8A;
+    width: 175px;
+    border-radius: 4px;
+}
+
+.flex-horizontal-files {
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+    margin-left: 24px;
+}
+
+.File {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+.FileImage {
+    width: 212px;
+    height: 168px;
+}
+
+.FileName {
+    margin-top: 10px;
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: normal;
+}

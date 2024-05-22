@@ -3,6 +3,7 @@ import { useState } from "react";
 import './NewTaskOverlay.css';
 
 function NewTaskOverlay(stopCreatingTask) {
+    const stopFunction = stopCreatingTask.stopCreatingTask;
     const [newTask, setNewTask] = useState({
         name: "",
         description: "",
@@ -18,14 +19,14 @@ function NewTaskOverlay(stopCreatingTask) {
 
     function handleSubmit(evt) {
         evt.prevent_default();
-        stopCreatingTask();
+        stopFunction();
     }
 
     return (
         <div className="NewTaskOverlay">
             <div className="OverlayBar">
                 <p>Create New Task</p>
-                <button className="transparent-button" onClick={stopCreatingTask}>
+                <button className="transparent-button" onClick={stopFunction}>
                     <IoMdClose />
                 </button>
             </div>
@@ -57,12 +58,13 @@ function NewTaskOverlay(stopCreatingTask) {
                         <div className="assigned">
                             <label className="assigned">Assigned to</label>
                             <select name="assigned" className="assigned">
-                                <option value="etti">Etti</option>
-                                <option value="mark">Mark</option>
-                                <option value="martins">Martins</option>
-                                <option value="tahmina">Tahmina</option>
-                                <option value="chase">Chase</option>
-                                <option value="miriam">Miriam</option>
+                                {["etti", "mark", "martins", "tahmina", "chase", "miriam"].map(
+                                    (assignedTo) => (
+                                        <option key={assignedTo} value={assignedTo}>
+                                            {assignedTo}
+                                        </option>
+                                    )
+                                )}
                             </select>
                         </div>
                         <div className="date">
@@ -89,7 +91,6 @@ function NewTaskOverlay(stopCreatingTask) {
 
                     <div className="final_buttons">
                         <div><button className="cancel" onClick={handleSubmit}>Cancel</button></div>
-                        
                         <div><button className="save" onClick={handleSubmit}>Save Task</button></div>
                     </div>
                 </form>
